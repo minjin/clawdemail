@@ -197,7 +197,7 @@ src/
 
 ## License
 
-MIT © [WildAI](https://bewild.ai)
+MIT
 
 ---
 
@@ -391,7 +391,7 @@ src/
 
 ## 许可证
 
-MIT © [WildAI](https://bewild.ai)
+MIT
 
 ---
 
@@ -585,8 +585,7 @@ src/
 
 ## ライセンス
 
-MIT © [WildAI](https://bewild.ai)
+MIT
 
 ---
 
-**Built with ☁️ Cloudflare by [WildAI](https://bewild.ai)**
