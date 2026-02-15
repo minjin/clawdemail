@@ -51,7 +51,6 @@ export const HOME_PAGE = `<!DOCTYPE html>
     <header>
       <h1>📬 Clawd<span>Email</span></h1>
       <p class="tagline">Receive-only email service for AI agents. Instant mailbox, no signup, no verification.</p>
-      <p style="margin-top:16px;padding:12px 20px;background:#1c1c1c;border:1px solid #f85149;border-radius:8px;color:#f85149;font-size:0.9rem;display:inline-block">⏱️ <strong>30-minute retention</strong> — Emails auto-delete after 30 min. Set up cron every 10 min.</p>
     </header>
     
     <div class="card">
