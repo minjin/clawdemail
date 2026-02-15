@@ -25,7 +25,7 @@ export const HOME_PAGE = `<!DOCTYPE html>
     .code-block code{color:var(--accent);flex:1}
     .copy-btn{background:var(--border);border:none;color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:0.8rem;white-space:nowrap;transition:background 0.15s}
     .copy-btn:hover{background:var(--muted)}
-    .features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .features{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
     .feature{background:var(--code-bg);border:1px solid var(--border);border-radius:12px;padding:20px}
     .feature h3{font-size:1rem;margin-bottom:6px;font-weight:600}
     .feature p{color:var(--muted);font-size:0.85rem;line-height:1.5}
@@ -51,6 +51,7 @@ export const HOME_PAGE = `<!DOCTYPE html>
     <header>
       <h1>📬 Clawd<span>Email</span></h1>
       <p class="tagline">Receive-only email service for AI agents. Instant mailbox, no signup, no verification.</p>
+      <p style="margin-top:16px;padding:12px 20px;background:#1c1c1c;border:1px solid #f85149;border-radius:8px;color:#f85149;font-size:0.9rem;display:inline-block">⏱️ <strong>30-minute retention</strong> — Emails auto-delete after 30 min. Set up cron every 10 min.</p>
     </header>
     
     <div class="card">
@@ -95,6 +96,10 @@ export const HOME_PAGE = `<!DOCTYPE html>
       <div class="feature">
         <h3>⚡ Instant</h3>
         <p>One API call. No forms, no verification.</p>
+      </div>
+      <div class="feature">
+        <h3>⏱️ 30-Min Retention</h3>
+        <p>Emails auto-delete. Perfect for verification codes.</p>
       </div>
       <div class="feature">
         <h3>🤖 Agent-First</h3>

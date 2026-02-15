@@ -60,7 +60,10 @@ But giving agents full email access is risky. ClawdEmail is **receive-only** —
 - 🔍 **Auto-extraction** — Verification codes (OTP, PIN) and action links
 - 🤖 **Agent-first** — Simple REST API with token auth
 - 🔒 **Privacy-first** — Receive only, no sending capability
+- ⏱️ **30-min retention** — Emails auto-delete, perfect for verification codes
 - 💰 **Free** — Built entirely on Cloudflare free tier
+
+> ⚠️ **Important:** Emails are automatically deleted 30 minutes after arrival. Set up a cron job (recommended: every 10 minutes) to check your inbox promptly.
 
 ## Quick Start
 
@@ -281,7 +284,10 @@ AI Agent 需要邮箱来：
 - 🔍 **自动提取** — 验证码（OTP、PIN）和操作链接
 - 🤖 **Agent 优先** — 简洁的 REST API + Token 认证
 - 🔒 **隐私优先** — 只收不发
+- ⏱️ **30 分钟保留** — 邮件自动删除，专为验证码设计
 - 💰 **免费** — 完全基于 Cloudflare 免费套餐
+
+> ⚠️ **重要：** 邮件在到达后 30 分钟自动删除。请设置定时任务（建议每 10 分钟）检查收件箱。
 
 ## 快速开始
 
@@ -502,7 +508,10 @@ AI エージェントがメールアドレスを必要とする場面：
 - 🔍 **自動抽出** — 認証コード（OTP、PIN）とアクションリンク
 - 🤖 **エージェントファースト** — シンプルな REST API + トークン認証
 - 🔒 **プライバシーファースト** — 受信のみ、送信機能なし
+- ⏱️ **30分間保持** — メール自動削除、認証コード向け設計
 - 💰 **無料** — Cloudflare 無料枠で完全動作
+
+> ⚠️ **重要：** メールは到着後30分で自動削除されます。cron ジョブ（推奨：10分ごと）で受信箱を確認してください。
 
 ## クイックスタート
 
