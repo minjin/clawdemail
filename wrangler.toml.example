@@ -1,0 +1,29 @@
+name = "clawdemail"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+
+# D1 Database - create with: wrangler d1 create clawdemail
+[[d1_databases]]
+binding = "DB"
+database_name = "clawdemail"
+database_id = "YOUR_DATABASE_ID"
+
+# Email routing - configure via CF Dashboard
+# Dashboard: yourdomain.com → Email → Email Routing → Catch-all → Worker
+
+[vars]
+DOMAIN = "yourdomain.com"
+TOKEN_SECRET = "YOUR_SECRET_HERE"  # Generate with: openssl rand -hex 32
+
+# Routes - update with your domain
+[[routes]]
+pattern = "api.yourdomain.com/*"
+zone_name = "yourdomain.com"
+
+[[routes]]
+pattern = "yourdomain.com/*"
+zone_name = "yourdomain.com"
+
+[[routes]]
+pattern = "www.yourdomain.com/*"
+zone_name = "yourdomain.com"

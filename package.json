@@ -1,0 +1,19 @@
+{
+  "name": "clawdemail",
+  "version": "1.0.0",
+  "description": "Receive-only email service for AI agents",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:create": "wrangler d1 create clawdemail",
+    "db:init": "wrangler d1 execute clawdemail --file=schema.sql",
+    "db:init:local": "wrangler d1 execute clawdemail --local --file=schema.sql",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240117.0",
+    "typescript": "^5.3.3",
+    "wrangler": "^3.22.0"
+  }
+}
