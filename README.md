@@ -8,8 +8,27 @@
 
 **Receive-only email service for AI agents.** Get a mailbox instantly, auto-extract verification codes and links.
 
-[![Deploy to Cloudflare](https://img.shields.io/badge/Deploy-Cloudflare%20Workers-F38020?logo=cloudflare)](https://workers.cloudflare.com/)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/minjin/clawdemail)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+## One-Click Deploy
+
+Click the button above, then run the setup script:
+
+```bash
+# After cloning, run setup
+chmod +x scripts/setup.sh
+./scripts/setup.sh
+```
+
+The script will:
+1. Create D1 database automatically
+2. Generate secure TOKEN_SECRET
+3. Configure wrangler.toml
+4. Initialize database schema
+5. Deploy to Workers
+
+You only need to manually configure **Email Routing** in Cloudflare Dashboard.
 
 ## Why ClawdEmail?
 
@@ -205,6 +224,19 @@ MIT
 
 **专为 AI Agent 设计的只收邮件服务。** 一键创建邮箱，自动提取验证码和链接。
 
+## 一键部署
+
+点击上方按钮后，运行 setup 脚本：
+
+```bash
+chmod +x scripts/setup.sh
+./scripts/setup.sh
+```
+
+脚本会自动：创建 D1 数据库 → 生成密钥 → 配置文件 → 初始化表结构 → 部署
+
+唯一需要手动配置的是 Cloudflare 控制台中的 **Email Routing**。
+
 ## 为什么需要 ClawdEmail？
 
 AI Agent 需要邮箱来：
@@ -398,6 +430,19 @@ MIT
 # 日本語
 
 **AI エージェント向けの受信専用メールサービス。** ワンクリックでメールボックスを作成、認証コードとリンクを自動抽出。
+
+## ワンクリックデプロイ
+
+上のボタンをクリック後、セットアップスクリプトを実行：
+
+```bash
+chmod +x scripts/setup.sh
+./scripts/setup.sh
+```
+
+スクリプトが自動で：D1 データベース作成 → シークレット生成 → 設定ファイル → スキーマ初期化 → デプロイ
+
+手動設定が必要なのは Cloudflare ダッシュボードの **Email Routing** のみ。
 
 ## なぜ ClawdEmail？
 
