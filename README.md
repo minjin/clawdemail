@@ -8,7 +8,6 @@
 
 **Receive-only email service for AI agents.** Get a mailbox instantly, auto-extract verification codes and links.
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/minjin/clawdemail)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ## One-Click Deploy
