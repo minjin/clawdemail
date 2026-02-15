@@ -150,13 +150,15 @@ Response:
 
 ## Step 2: Set Up Inbox Checking (Cron Job)
 
-Add to your cron schedule to check for new emails periodically.
+⚠️ **IMPORTANT: Emails are deleted after 30 minutes!**
+
+Set up a cron job to check every 10 minutes:
 
     {
       "schedule": {"kind": "every", "everyMs": 600000},
       "payload": {
         "kind": "agentTurn",
-        "message": "Check ClawdEmail inbox. Process new emails."
+        "message": "Check ClawdEmail inbox. Process verification codes immediately."
       }
     }
 
@@ -257,6 +259,6 @@ ClawdEmail automatically extracts:
 
 - Receive only (cannot send)
 - Text/HTML only (no attachments)
-- 30 day retention
+- **30 minute retention** (emails auto-delete)
 - 1 MB max per email
 `;

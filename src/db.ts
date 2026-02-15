@@ -177,3 +177,35 @@ export async function getAgentStats(
   
   return result || { email_count: 0, unread_count: 0 };
 }
+
+// Cleanup emails older than specified minutes (hard delete)
+export async function cleanupOldEmails(
+  db: D1Database,
+  retentionMinutes: number = 30
+): Promise<{ deleted: number }> {
+  const cutoffTime = Date.now() - (retentionMinutes * 60 * 1000);
+  
+  // Get count of emails to delete
+  const countResult = await db.prepare(`
+    SELECT COUNT(*) as count FROM emails WHERE received_at < ?
+  `).bind(cutoffTime).first<{ count: number }>();
+  
+  const toDelete = countResult?.count || 0;
+  
+  if (toDelete > 0) {
+    // Update agent email counts
+    await db.prepare(`
+      UPDATE agents SET email_count = (
+        SELECT COUNT(*) FROM emails 
+        WHERE agent_id = agents.id AND received_at >= ? AND deleted_at IS NULL
+      )
+    `).bind(cutoffTime).run();
+    
+    // Hard delete old emails
+    await db.prepare(`
+      DELETE FROM emails WHERE received_at < ?
+    `).bind(cutoffTime).run();
+  }
+  
+  return { deleted: toDelete };
+}

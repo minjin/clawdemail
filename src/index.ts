@@ -3,7 +3,10 @@
 
 import type { Env, ApiResponse } from './types';
 import { extractToken, verifyToken, checkRateLimit } from './auth';
-import { createAgent, getInbox, getEmail, deleteEmail, getAgentStats, findAgentByEmail, storeEmail } from './db';
+import { createAgent, getInbox, getEmail, deleteEmail, getAgentStats, findAgentByEmail, storeEmail, cleanupOldEmails } from './db';
+
+// Email retention in minutes (30 min default)
+const EMAIL_RETENTION_MINUTES = 30;
 import { HOME_PAGE, SKILL_MD } from './static';
 import { extractCode, extractLinks } from './extract';
 
@@ -353,6 +356,18 @@ export default {
     } catch (e: any) {
       console.error('Error:', e);
       return error('Internal server error', 500, 'INTERNAL_ERROR');
+    }
+  },
+
+  // Scheduled handler - cleanup old emails
+  async scheduled(event: ScheduledEvent, env: Env, ctx: ExecutionContext): Promise<void> {
+    console.log(`Scheduled cleanup triggered at ${new Date().toISOString()}`);
+    
+    try {
+      const result = await cleanupOldEmails(env.DB, EMAIL_RETENTION_MINUTES);
+      console.log(`Cleanup complete: ${result.deleted} emails deleted (retention: ${EMAIL_RETENTION_MINUTES} min)`);
+    } catch (e: any) {
+      console.error('Cleanup error:', e);
     }
   }
 };

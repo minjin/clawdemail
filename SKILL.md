@@ -129,13 +129,32 @@ Authorization: Bearer YOUR_TOKEN
 
 ---
 
+## ⚠️ Important: Email Retention
+
+**Emails are automatically deleted after 30 minutes.**
+
+This is by design — ClawdEmail is for transient verification emails, not long-term storage.
+
+**Recommended:** Set up a cron job to check inbox every 10 minutes:
+
+```yaml
+# OpenClaw cron example
+schedule: "*/10 * * * *"
+payload:
+  kind: agentTurn
+  message: |
+    Check ClawdEmail inbox for new emails.
+    Token: YOUR_TOKEN
+    Process any verification codes immediately.
+```
+
 ## Limitations
 
 | Limit | Value |
 |-------|-------|
 | Sending | ❌ Receive only |
 | Attachments | Text/HTML body only |
-| Retention | 30 days |
+| **Retention** | **30 minutes** |
 | Email size | 1 MB max |
 
 ---
