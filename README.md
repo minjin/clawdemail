@@ -13,22 +13,37 @@
 
 ## One-Click Deploy
 
-Click the button above, then run the setup script:
+### Step 1: Fork this repo
+Click **Fork** button on GitHub to create your own copy.
 
+### Step 2: Edit configuration
+In your forked repo, edit `wrangler.toml`:
+```toml
+[vars]
+DOMAIN = "yourdomain.com"  # Your domain
+```
+
+### Step 3: Deploy
+Click the deploy button below (replace URL with your fork):
+
+```
+https://deploy.workers.cloudflare.com/?url=https://github.com/YOUR_USERNAME/clawdemail
+```
+
+### Step 4: Setup database & email
 ```bash
-# After cloning, run setup
+git clone https://github.com/YOUR_USERNAME/clawdemail
+cd clawdemail
 chmod +x scripts/setup.sh
 ./scripts/setup.sh
 ```
 
-The script will:
-1. Create D1 database automatically
-2. Generate secure TOKEN_SECRET
-3. Configure wrangler.toml
-4. Initialize database schema
-5. Deploy to Workers
+The script will create D1 database, generate secrets, and initialize schema.
 
-You only need to manually configure **Email Routing** in Cloudflare Dashboard.
+### Step 5: Configure Email Routing
+In Cloudflare Dashboard → Your domain → Email → Email Routing:
+- Enable Email Routing
+- Add catch-all rule → Send to Worker → clawdemail
 
 ## Why ClawdEmail?
 
@@ -226,16 +241,30 @@ MIT
 
 ## 一键部署
 
-点击上方按钮后，运行 setup 脚本：
+### 第 1 步：Fork 仓库
+点击 GitHub 上的 **Fork** 按钮，创建你自己的副本。
 
-```bash
-chmod +x scripts/setup.sh
-./scripts/setup.sh
+### 第 2 步：修改配置
+在你 Fork 的仓库中编辑 `wrangler.toml`：
+```toml
+[vars]
+DOMAIN = "yourdomain.com"  # 你的域名
 ```
 
-脚本会自动：创建 D1 数据库 → 生成密钥 → 配置文件 → 初始化表结构 → 部署
+### 第 3 步：部署
+使用你的 Fork 地址部署：
+```
+https://deploy.workers.cloudflare.com/?url=https://github.com/你的用户名/clawdemail
+```
 
-唯一需要手动配置的是 Cloudflare 控制台中的 **Email Routing**。
+### 第 4 步：初始化数据库
+```bash
+git clone https://github.com/你的用户名/clawdemail
+cd clawdemail && chmod +x scripts/setup.sh && ./scripts/setup.sh
+```
+
+### 第 5 步：配置 Email Routing
+Cloudflare 控制台 → 你的域名 → Email → Email Routing → 添加 catch-all 规则
 
 ## 为什么需要 ClawdEmail？
 
@@ -433,16 +462,30 @@ MIT
 
 ## ワンクリックデプロイ
 
-上のボタンをクリック後、セットアップスクリプトを実行：
+### ステップ 1：リポジトリを Fork
+GitHub で **Fork** ボタンをクリックして、自分のコピーを作成。
 
-```bash
-chmod +x scripts/setup.sh
-./scripts/setup.sh
+### ステップ 2：設定を編集
+Fork したリポジトリで `wrangler.toml` を編集：
+```toml
+[vars]
+DOMAIN = "yourdomain.com"  # あなたのドメイン
 ```
 
-スクリプトが自動で：D1 データベース作成 → シークレット生成 → 設定ファイル → スキーマ初期化 → デプロイ
+### ステップ 3：デプロイ
+Fork の URL でデプロイ：
+```
+https://deploy.workers.cloudflare.com/?url=https://github.com/あなたのユーザー名/clawdemail
+```
 
-手動設定が必要なのは Cloudflare ダッシュボードの **Email Routing** のみ。
+### ステップ 4：データベース初期化
+```bash
+git clone https://github.com/あなたのユーザー名/clawdemail
+cd clawdemail && chmod +x scripts/setup.sh && ./scripts/setup.sh
+```
+
+### ステップ 5：Email Routing 設定
+Cloudflare ダッシュボード → ドメイン → Email → Email Routing → catch-all ルール追加
 
 ## なぜ ClawdEmail？
 
